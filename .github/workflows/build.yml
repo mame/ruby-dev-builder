@@ -97,7 +97,7 @@ jobs:
     - run: ./autogen.sh
     - run: ./configure --prefix=$HOME/.rubies/ruby-${{ matrix.name }} --enable-shared --disable-install-doc
       if: startsWith(matrix.os, 'ubuntu')
-    - run: ./configure --prefix=$HOME/.rubies/ruby-${{ matrix.name }} --enable-shared --disable-install-doc --with-openssl-dir=$(brew --prefix openssl@1.1) --with-readline-dir=$(brew --prefix readline)
+    - run: ./configure --prefix=$HOME/.rubies/ruby-${{ matrix.name }} --disable-install-doc --with-openssl-dir=$(brew --prefix openssl@1.1) --with-readline-dir=$(brew --prefix readline)
       if: matrix.os == 'macos-latest'
     - run: make
     - run: make install
